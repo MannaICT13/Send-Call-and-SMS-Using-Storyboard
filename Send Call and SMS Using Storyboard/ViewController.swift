@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class ViewController: UIViewController{
+class ViewController: UIViewController,UITextFieldDelegate{
 
     
     @IBOutlet weak var phoneTextField: UITextField!
@@ -19,9 +19,14 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        phoneTextField.resignFirstResponder()
-        messageBodyTextView.resignFirstResponder()
-       
+
+    
+            phoneTextField.keyboardType = .numbersAndPunctuation
+            phoneTextField.returnKeyType = .done
+            phoneTextField.delegate = self
+            dismissKeyboardWhenTappedAround()
+            
+     
     }
 
     
@@ -50,11 +55,38 @@ class ViewController: UIViewController{
         
     }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        phoneTextField.resignFirstResponder()
+      
+        return true
+    }
+    
+    
 }
 extension ViewController : MFMessageComposeViewControllerDelegate{
  
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         
     }
+    
+}
+
+extension  ViewController{
+    
+    func dismissKeyboardWhenTappedAround(){
+        
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        
+        
+    }
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
+        
+    }
+    
     
 }
