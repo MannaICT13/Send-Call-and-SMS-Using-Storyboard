@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     
     @IBOutlet weak var phoneTextField: UITextField!
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        phoneTextField.resignFirstResponder()
+        messageBodyTextView.resignFirstResponder()
        
     }
 
@@ -37,9 +40,21 @@ class ViewController: UIViewController {
     }
     @IBAction func smsAction(_ sender: Any) {
         
+        let messageController = MFMessageComposeViewController()
+        messageController.messageComposeDelegate = self
+        messageController.body = messageBodyTextView.text!
+        messageController.recipients = [phoneTextField.text!]
+        
+        
         
         
     }
     
 }
-
+extension ViewController : MFMessageComposeViewControllerDelegate{
+ 
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+    }
+    
+}
