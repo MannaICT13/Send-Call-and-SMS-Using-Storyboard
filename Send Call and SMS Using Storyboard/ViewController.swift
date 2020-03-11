@@ -21,7 +21,16 @@ class ViewController: UIViewController {
        
     }
 
+    
     @IBAction func callAction(_ sender: Any) {
+        
+        if let url = NSURL(string: "TEL://\(String(describing: phoneTextField.text))") {
+            
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            
+        }
+        
+        
         
         
         
