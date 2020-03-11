@@ -11,13 +11,26 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var phoneTextField: UITextField!
     
+    
+    @IBOutlet weak var messageBodyTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
     }
 
-
+    @IBAction func callAction(_ sender: Any) {
+        
+        
+        
+    }
+    @IBAction func smsAction(_ sender: Any) {
+        
+        
+        
+    }
+    
 }
 
