@@ -45,20 +45,24 @@ class ViewController: UIViewController,UITextFieldDelegate{
     }
     @IBAction func smsAction(_ sender: Any) {
         
+        if MFMessageComposeViewController.canSendText(){
+            
         let messageController = MFMessageComposeViewController()
         messageController.messageComposeDelegate = self
         messageController.body = messageBodyTextView.text!
         messageController.recipients = [phoneTextField.text!]
+            
+            self.present(messageController, animated: true, completion: nil)
         
         
-        
+        }
         
     }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         phoneTextField.resignFirstResponder()
-      
         return true
     }
     
@@ -67,6 +71,23 @@ class ViewController: UIViewController,UITextFieldDelegate{
 extension ViewController : MFMessageComposeViewControllerDelegate{
  
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        
+        switch result {
+        case .cancelled:
+            print("Cancel")
+            
+        case .sent:
+            print("Sent")
+            
+        case .failed:
+            print("Faild")
+            
+        default:
+            fatalError()
+        }
+        
+        
         
     }
     
