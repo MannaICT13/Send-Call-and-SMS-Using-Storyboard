@@ -18,6 +18,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var messageBodyTextView: UITextView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
     
@@ -32,6 +33,7 @@ class ViewController: UIViewController,UITextFieldDelegate{
     
     @IBAction func callAction(_ sender: Any) {
         
+        
         if let url = NSURL(string: "TEL://\(String(describing: phoneTextField.text))") {
             
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
@@ -43,7 +45,9 @@ class ViewController: UIViewController,UITextFieldDelegate{
         
         
     }
+    
     @IBAction func smsAction(_ sender: Any) {
+        
         
         if MFMessageComposeViewController.canSendText(){
             
@@ -74,6 +78,7 @@ extension ViewController : MFMessageComposeViewControllerDelegate{
         
         
         switch result {
+            
         case .cancelled:
             print("Cancel")
             

@@ -15,18 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GYe-Bv-xce">
-                                <rect key="frame" x="20" y="290" width="374" height="227"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GYe-Bv-xce">
+                                <rect key="frame" x="20" y="278" width="374" height="258"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCY-9f-c7m">
-                                <rect key="frame" x="20" y="578" width="154" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCY-9f-c7m">
+                                <rect key="frame" x="20" y="556" width="374" height="39"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="XCh-dj-eof"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Call">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -35,10 +36,17 @@
                                     <action selector="callAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zlp-va-0qK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-47-Ijj">
-                                <rect key="frame" x="232" y="578" width="162" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rK2-jr-tFE">
+                                <rect key="frame" x="20" y="194" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-47-Ijj">
+                                <rect key="frame" x="20" y="615" width="374" height="39"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Bc2-pU-JTp"/>
+                                </constraints>
                                 <state key="normal" title="SMS">
                                     <color key="titleColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -46,14 +54,23 @@
                                     <action selector="smsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oYc-kX-Rey"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rK2-jr-tFE">
-                                <rect key="frame" x="20" y="212" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ovB-47-Ijj" secondAttribute="trailing" constant="20" id="0tk-Tf-y1W"/>
+                            <constraint firstItem="GYe-Bv-xce" firstAttribute="top" secondItem="rK2-jr-tFE" secondAttribute="bottom" constant="50" id="8Wf-MP-hpH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fCY-9f-c7m" secondAttribute="trailing" constant="20" id="GNM-BM-0n3"/>
+                            <constraint firstItem="ovB-47-Ijj" firstAttribute="top" secondItem="fCY-9f-c7m" secondAttribute="bottom" constant="20" id="Iso-Ho-XUW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ovB-47-Ijj" secondAttribute="bottom" constant="208" id="KGZ-Tt-7yj"/>
+                            <constraint firstItem="GYe-Bv-xce" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Rck-1S-rMU"/>
+                            <constraint firstItem="fCY-9f-c7m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TLb-Is-8CZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rK2-jr-tFE" secondAttribute="trailing" constant="20" id="Zf8-YU-i8B"/>
+                            <constraint firstItem="ovB-47-Ijj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gyA-27-vMS"/>
+                            <constraint firstItem="rK2-jr-tFE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h15-lG-EbY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GYe-Bv-xce" secondAttribute="trailing" constant="20" id="hRU-aM-5gu"/>
+                            <constraint firstItem="fCY-9f-c7m" firstAttribute="top" secondItem="GYe-Bv-xce" secondAttribute="bottom" constant="20" id="jtX-S5-L2K"/>
+                            <constraint firstItem="rK2-jr-tFE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="wGB-zi-2sx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
